@@ -6,7 +6,8 @@ def crawl(url):
     if (sourceCode.status_code == 200):
         plainText = sourceCode.text
         crawler = BeautifulSoup(plainText, 'html.parser')
-        print(crawler.find_all('head'))
+        thePriceBfP = crawler.find_all('span', {'data-bind' : 'markupText:\'currentPriceBeforePoint\''})
+        print(thePriceBfP[0].string)
 
 
 
