@@ -7,7 +7,8 @@ def crawl(url):
         plainText = sourceCode.text
         crawler = BeautifulSoup(plainText, 'html.parser')
         thePriceBfP = crawler.find_all('span', {'data-bind' : 'markupText:\'currentPriceBeforePoint\''})
-        print(thePriceBfP[0].string)
+        thePriceAfP = crawler.find_all('span', {'data-bind' : 'markupText:\'currentPriceAfterPoint\''})
+        print (thePriceBfP[0].string + "," + thePriceAfP[0].string)
 
 
 
