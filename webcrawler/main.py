@@ -8,7 +8,13 @@ def crawl(url):
         crawler = BeautifulSoup(plainText, 'html.parser')
         thePriceBfP = crawler.find_all('span', {'data-bind' : 'markupText:\'currentPriceBeforePoint\''})
         thePriceAfP = crawler.find_all('span', {'data-bind' : 'markupText:\'currentPriceAfterPoint\''})
-        print (thePriceBfP[0].string + "," + thePriceAfP[0].string)
+
+        if (len(thePriceBfP) == 0 and len(thePriceAfP) == 0):
+            print("Sorry, this is not a product page.")
+        else:
+            print (thePriceBfP[0].string + "," + thePriceAfP[0].string)
+    else:
+        print("There was a connection problem to the url given.")
 
 
 
