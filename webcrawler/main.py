@@ -15,8 +15,11 @@ def crawl(url):
             print (thePriceBfP[0].string + "," + thePriceAfP[0].string)
     else:
         print("There was a connection problem to the url given.")
+    
 
 
-
-productUrl = str(sys.argv[1])
-crawl(productUrl)
+if (len(sys.argv) > 1):
+    productUrl = str(sys.argv[1])
+    crawl(productUrl)
+else:
+    print("You did not provide Url, please just a give the url of the product")
